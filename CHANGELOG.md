@@ -40,7 +40,7 @@ Unreleased
 
  - Add new class `ContaoBootstrap\Panel\Components\ContentElement\AbstractPanelStartElement`
  - Add new panel single content element
- 
+
 ### Fixed
 
  - Fix travis configuration

@@ -1,16 +1,5 @@
 <?php
 
-/**
- * Contao Bootstrap panel.
- *
- * @package    contao-bootstrap
- * @subpackage Panel
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2014-2020 netzmacht David Molineus. All rights reserved.
- * @license    LGPL-3.0-or-later https://github.com/contao-bootstrap/panel/blob/master/LICENSE
- * @filesource
- */
-
 namespace ContaoBootstrap\Panel\Components\ContentElement;
 
 use Contao\ContentModel;
@@ -23,11 +12,6 @@ use Netzmacht\Contao\Toolkit\Data\Model\RepositoryManager;
 use Netzmacht\Contao\Toolkit\Routing\RequestScopeMatcher;
 use Symfony\Component\Templating\EngineInterface as TemplateEngine;
 
-/**
- * Class PanelElementFactory
- *
- * @package ContaoBootstrap\Panel\Components\ContentElement
- */
 final class PanelElementFactory implements ComponentFactory
 {
     /**

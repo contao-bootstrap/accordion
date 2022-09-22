@@ -1,16 +1,5 @@
 <?php
 
-/**
- * Contao Bootstrap panel.
- *
- * @package    contao-bootstrap
- * @subpackage Panel
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2014-2020 netzmacht David Molineus. All rights reserved.
- * @license    LGPL-3.0-or-later https://github.com/contao-bootstrap/panel/blob/master/LICENSE
- * @filesource
- */
-
 declare(strict_types=1);
 
 namespace ContaoBootstrap\Panel\EventListener\Dca;
@@ -20,32 +9,19 @@ use Contao\CoreBundle\Framework\Adapter;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\DataContainer;
 
-/**
- * Class ContentDcaListener
- *
- * @package ContaoBootstrap\Panel\EventListener\Dca
- */
+use function sprintf;
+
 final class ContentDcaListener
 {
-    /**
-     * Contao framework.
-     *
-     * @var ContaoFramework
-     */
     private ContaoFramework $framework;
 
     /**
      * Content repository.
      *
-     * @var Adapter|ContentModel
+     * @var Adapter<ContentModel>
      */
-    private $repository;
+    private Adapter $repository;
 
-    /**
-     * ContentDcaListener constructor.
-     *
-     * @param ContaoFramework $framework Contao framework.
-     */
     public function __construct(ContaoFramework $framework)
     {
         $this->framework  = $framework;
@@ -57,7 +33,7 @@ final class ContentDcaListener
      *
      * @param DataContainer|null $dataContainer Data container driver.
      *
-     * @return array
+     * @return array<int|string,string>
      */
     public function panelGroupOptions($dataContainer = null): array
     {
@@ -93,14 +69,12 @@ final class ContentDcaListener
     /**
      * Generate a panel name if not given.
      *
-     * @param string        $value         Panel name.
+     * @param string|null   $value         Panel name.
      * @param DataContainer $dataContainer Data container driver.
-     *
-     * @return string
      */
-    public function generatePanelName($value, $dataContainer): string
+    public function generatePanelName(?string $value, DataContainer $dataContainer): string
     {
-        if (!$value) {
+        if (! $value) {
             $value = 'panel_' . $dataContainer->activeRecord->id;
         }
 
