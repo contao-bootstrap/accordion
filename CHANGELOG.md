@@ -5,6 +5,14 @@ Changelog
 Unreleased
 ----------
 
+### Changed
+
+ - Bump minimum PHP version to 7.4
+ - Bump Symfony requirements to ^4.4 or ^5.4
+ - Bump Contao requirements to ^4.9 or ^4.13
+ - Changed coding standard
+ - Rewrite content elements to fragment controller
+
 [Full Changelog](https://github.com/contao-bootstrap/panel/compare/master...develop)
 
 2.1.2 (2020-01-21)

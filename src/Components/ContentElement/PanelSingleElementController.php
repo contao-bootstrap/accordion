@@ -11,6 +11,7 @@ use Contao\FilesModel;
 use Contao\FrontendTemplate;
 use Contao\Model;
 use ContaoBootstrap\Core\Helper\ColorRotate;
+use Netzmacht\Contao\Toolkit\Data\Model\ContaoRepository;
 use Netzmacht\Contao\Toolkit\Data\Model\RepositoryManager;
 use Netzmacht\Contao\Toolkit\Response\ResponseTagger;
 use Netzmacht\Contao\Toolkit\Routing\RequestScopeMatcher;
@@ -19,6 +20,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use function array_merge;
+use function assert;
 use function is_file;
 
 /** @ContentElement("bs_panel_single", category="bs_panel") */
@@ -57,7 +59,8 @@ final class PanelSingleElementController extends AbstractPanelStartElementContro
         // Add an image
         if ($model->addImage && ! empty($model->singleSRC)) {
             $repository = $this->repositoryManager->getRepository(FilesModel::class);
-            $fileModel  = $repository->findByUuid($model->singleSRC);
+            assert($repository instanceof ContaoRepository);
+            $fileModel = $repository->findByUuid($model->singleSRC);
 
             if ($fileModel !== null && is_file($this->projectDir . '/' . $fileModel->path)) {
                 $data['singleSRC'] = $fileModel->path;

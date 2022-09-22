@@ -8,6 +8,7 @@ use Contao\ContentModel;
 use Contao\CoreBundle\Framework\Adapter;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\DataContainer;
+use Contao\Model\Collection;
 
 use function sprintf;
 
@@ -37,10 +38,10 @@ final class ContentDcaListener
      */
     public function panelGroupOptions($dataContainer = null): array
     {
-        $columns[] = 'tl_content.type = ?';
-        $values[]  = 'bs_panel_group_start';
+        $columns = ['tl_content.type = ?'];
+        $values  = ['bs_panel_group_start'];
 
-        if ($dataContainer) {
+        if ($dataContainer && $dataContainer->activeRecord) {
             $columns[] = 'tl_content.pid = ?';
             $columns[] = 'tl_content.ptable = ?';
             $columns[] = 'tl_content.sorting < ?';
@@ -53,7 +54,7 @@ final class ContentDcaListener
         $collection = $this->repository->findBy($columns, $values, ['order' => 'tl_content.sorting ASC']);
         $options    = [];
 
-        if ($collection) {
+        if ($collection instanceof Collection) {
             foreach ($collection as $model) {
                 $options[$model->id] = sprintf(
                     '%s [%s]',
@@ -74,10 +75,10 @@ final class ContentDcaListener
      */
     public function generatePanelName(?string $value, DataContainer $dataContainer): string
     {
-        if (! $value) {
+        if (! $value && $dataContainer->activeRecord) {
             $value = 'panel_' . $dataContainer->activeRecord->id;
         }
 
-        return $value;
+        return (string) $value;
     }
 }
