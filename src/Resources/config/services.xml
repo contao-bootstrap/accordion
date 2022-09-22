@@ -4,17 +4,51 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services
         http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="ContaoBootstrap\Panel\Components\ContentElement\PanelElementFactory" >
-            <argument type="service" id="templating" />
-            <argument type="service" id="contao_bootstrap.core.helper.color_rotate" />
-            <argument type="service" id="netzmacht.contao_toolkit.routing.scope_matcher" />
-            <argument type="service" id="netzmacht.contao_toolkit.repository_manager" />
-            <tag name="netzmacht.contao_toolkit.component.content_element_factory" />
-            <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_group_start" />
-            <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_group_end" />
-            <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_start" />
-            <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_end" />
-            <tag name="netzmacht.contao_toolkit.component.content_element" category="bs_panel" alias="bs_panel_single" />
+        <service id="ContaoBootstrap\Panel\Components\ContentElement\PanelGroupStartElementController">
+            <argument type="service" id="netzmacht.contao_toolkit.template_renderer"/>
+            <argument type="service" id="netzmacht.contao_toolkit.routing.scope_matcher"/>
+            <argument type="service" id="netzmacht.contao_toolkit.response_tagger"/>
+            <argument type="service" id="contao.security.token_checker"/>
+            <argument type="service" id="contao_bootstrap.core.helper.color_rotate"/>
+            <argument type="service" id="netzmacht.contao_toolkit.repository_manager"/>
+        </service>
+
+        <service id="ContaoBootstrap\Panel\Components\ContentElement\PanelGroupEndElementController">
+            <argument type="service" id="netzmacht.contao_toolkit.template_renderer"/>
+            <argument type="service" id="netzmacht.contao_toolkit.routing.scope_matcher"/>
+            <argument type="service" id="netzmacht.contao_toolkit.response_tagger"/>
+            <argument type="service" id="contao.security.token_checker"/>
+            <argument type="service" id="contao_bootstrap.core.helper.color_rotate"/>
+            <argument type="service" id="netzmacht.contao_toolkit.repository_manager"/>
+        </service>
+
+        <service id="ContaoBootstrap\Panel\Components\ContentElement\PanelSingleElementController">
+            <argument type="service" id="netzmacht.contao_toolkit.template_renderer"/>
+            <argument type="service" id="netzmacht.contao_toolkit.routing.scope_matcher"/>
+            <argument type="service" id="netzmacht.contao_toolkit.response_tagger"/>
+            <argument type="service" id="contao.security.token_checker"/>
+            <argument type="service" id="contao_bootstrap.core.helper.color_rotate"/>
+            <argument type="service" id="netzmacht.contao_toolkit.repository_manager"/>
+            <argument>%kernel.project_dir%</argument>
+        </service>
+
+        <service id="ContaoBootstrap\Panel\Components\ContentElement\PanelStartElementController">
+            <argument type="service" id="netzmacht.contao_toolkit.template_renderer"/>
+            <argument type="service" id="netzmacht.contao_toolkit.routing.scope_matcher"/>
+            <argument type="service" id="netzmacht.contao_toolkit.response_tagger"/>
+            <argument type="service" id="contao.security.token_checker"/>
+            <argument type="service" id="contao_bootstrap.core.helper.color_rotate"/>
+            <argument type="service" id="netzmacht.contao_toolkit.repository_manager"/>
+        </service>
+
+        <service id="ContaoBootstrap\Panel\Components\ContentElement\PanelEndElementController">
+            <argument type="service" id="netzmacht.contao_toolkit.template_renderer"/>
+            <argument type="service" id="netzmacht.contao_toolkit.routing.scope_matcher"/>
+            <argument type="service" id="netzmacht.contao_toolkit.response_tagger"/>
+            <argument type="service" id="contao.security.token_checker"/>
+            <argument type="service" id="contao_bootstrap.core.helper.color_rotate"/>
+            <argument type="service" id="netzmacht.contao_toolkit.repository_manager"/>
+            <argument>%kernel.project_dir%</argument>
         </service>
     </services>
 </container>
