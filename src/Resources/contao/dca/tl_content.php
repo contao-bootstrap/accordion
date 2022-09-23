@@ -57,7 +57,6 @@ $GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_panel_single'] = [
  */
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['bs_expanded'] = [
-    'label'     => &$GLOBALS['TL_LANG']['tl_content']['bs_expanded'],
     'exclude'   => true,
     'inputType' => 'checkbox',
     'default'   => false,
@@ -66,7 +65,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['bs_expanded'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['bs_panel_name'] = [
-    'label'         => &$GLOBALS['TL_LANG']['tl_content']['bs_panel_name'],
     'exclude'       => true,
     'inputType'     => 'text',
     'reference'     => &$GLOBALS['TL_LANG']['tl_content'],
@@ -74,9 +72,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['bs_panel_name'] = [
         'includeBlankOption' => true,
         'chosen'             => true,
         'tl_class'           => 'w50',
-    ],
-    'save_callback' => [
-        ['contao_bootstrap.panel.listener.dca.content', 'generatePanelName'],
     ],
     'sql'           => "varchar(64) NOT NULL default ''",
 ];

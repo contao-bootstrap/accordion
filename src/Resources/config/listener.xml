@@ -4,9 +4,9 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services
         http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <defaults public="true" />
-        <service id="contao_bootstrap.panel.listener.dca.content" class="ContaoBootstrap\Panel\EventListener\Dca\ContentDcaListener" >
-            <argument type="service" id="contao.framework" />
+        <service id="contao_bootstrap.panel.listener.dca.content"
+                 class="ContaoBootstrap\Panel\EventListener\Dca\ContentDcaListener">
+            <argument type="service" id="contao.framework"/>
         </service>
     </services>
 </container>

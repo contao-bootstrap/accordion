@@ -7,6 +7,7 @@ namespace ContaoBootstrap\Panel\EventListener\Dca;
 use Contao\ContentModel;
 use Contao\CoreBundle\Framework\Adapter;
 use Contao\CoreBundle\Framework\ContaoFramework;
+use Contao\CoreBundle\ServiceAnnotation\Callback;
 use Contao\DataContainer;
 use Contao\Model\Collection;
 
@@ -72,6 +73,8 @@ final class ContentDcaListener
      *
      * @param string|null   $value         Panel name.
      * @param DataContainer $dataContainer Data container driver.
+     *
+     * @Callback(table="tl_content", target="fields.bs_panel_name.save")
      */
     public function generatePanelName(?string $value, DataContainer $dataContainer): string
     {
