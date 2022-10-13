@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ContaoBootstrap\Panel\Components\ContentElement;
+namespace ContaoBootstrap\Accordion\Components\ContentElement;
 
 use Contao\ContentModel;
 use Contao\CoreBundle\Security\Authentication\Token\TokenChecker;
@@ -16,25 +16,25 @@ use Netzmacht\Contao\Toolkit\View\Template\TemplateRenderer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-abstract class AbstractPanelElementController extends AbstractContentElementController
+abstract class AbstractAccordionElementController extends AbstractContentElementController
 {
-    private ColorRotate $colorRotate;
-
     public function __construct(
         TemplateRenderer $templateRenderer,
         RequestScopeMatcher $scopeMatcher,
         ResponseTagger $responseTagger,
         TokenChecker $tokenChecker,
-        ColorRotate $colorRotate
+        private readonly ColorRotate $colorRotate,
     ) {
         parent::__construct($templateRenderer, $scopeMatcher, $responseTagger, $tokenChecker);
-
-        $this->colorRotate = $colorRotate;
     }
 
     /** {@inheritDoc} */
-    protected function preGenerate(Request $request, Model $model, string $section, ?array $classes = null): ?Response
-    {
+    protected function preGenerate(
+        Request $request,
+        Model $model,
+        string $section,
+        array|null $classes = null,
+    ): Response|null {
         if ($this->isBackendRequest($request)) {
             return $this->renderContentBackendView($model);
         }
@@ -44,24 +44,24 @@ abstract class AbstractPanelElementController extends AbstractContentElementCont
 
     protected function renderContentBackendView(ContentModel $model): Response
     {
-        $group = $this->getPanelGroup($model);
+        $group = $this->getAccordionGroup($model);
         $data  = [];
 
         if ($group && $group !== $model) {
-            $data['group'] = $group->bs_panel_name;
+            $data['group'] = $group->bs_accordion_name;
             $data['color'] = $this->rotateColor('ce:' . $group->id);
             $data['title'] = StringUtil::deserialize($model->headline, true)['value'] ?? '';
         } else {
             $data['color'] = $this->rotateColor('ce:' . $model->id);
-            $data['group'] = $model->type === 'bs_panel_group_start'
-                ? $model->bs_panel_name
+            $data['group'] = $model->type === 'bs_accordion_group_start'
+                ? $model->bs_accordion_name
                 : $model->headline;
         }
 
-        return $this->renderResponse('fe:be_bs_panel', $data);
+        return $this->renderResponse('fe:be_bs_accordion', $data);
     }
 
-    protected function getPanelGroup(ContentModel $model): ?ContentModel
+    protected function getAccordionGroup(ContentModel $model): ContentModel|null
     {
         $group = ContentModel::findOneBy(
             [
@@ -73,14 +73,14 @@ abstract class AbstractPanelElementController extends AbstractContentElementCont
             [
                 $model->ptable,
                 $model->pid,
-                'bs_panel_group_start',
-                'bs_panel_group_end',
+                'bs_accordion_group_start',
+                'bs_accordion_group_end',
                 $model->sorting,
             ],
-            ['order' => 'tl_content.sorting DESC']
+            ['order' => 'tl_content.sorting DESC'],
         );
 
-        if ($group && $group->type === 'bs_panel_group_start') {
+        if ($group && $group->type === 'bs_accordion_group_start') {
             return $group;
         }
 

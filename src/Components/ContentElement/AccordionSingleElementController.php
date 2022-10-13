@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ContaoBootstrap\Panel\Components\ContentElement;
+namespace ContaoBootstrap\Accordion\Components\ContentElement;
 
 use Contao\Controller;
 use Contao\CoreBundle\Security\Authentication\Token\TokenChecker;
@@ -23,31 +23,28 @@ use function array_merge;
 use function assert;
 use function is_file;
 
-/** @ContentElement("bs_panel_single", category="bs_panel") */
-final class PanelSingleElementController extends AbstractPanelStartElementController
+/** @ContentElement("bs_accordion_single", category="bs_accordion") */
+final class AccordionSingleElementController extends AbstractAccordionStartElementController
 {
-    private RepositoryManager $repositoryManager;
-
-    private string $projectDir;
-
     public function __construct(
         TemplateRenderer $templateRenderer,
         RequestScopeMatcher $scopeMatcher,
         ResponseTagger $responseTagger,
         TokenChecker $tokenChecker,
         ColorRotate $colorRotate,
-        RepositoryManager $repositoryManager,
-        string $projectDir
+        private RepositoryManager $repositoryManager,
+        private string $projectDir,
     ) {
         parent::__construct($templateRenderer, $scopeMatcher, $responseTagger, $tokenChecker, $colorRotate);
-
-        $this->repositoryManager = $repositoryManager;
-        $this->projectDir        = $projectDir;
     }
 
     /** {@inheritDoc} */
-    protected function preGenerate(Request $request, Model $model, string $section, ?array $classes = null): ?Response
-    {
+    protected function preGenerate(
+        Request $request,
+        Model $model,
+        string $section,
+        array|null $classes = null,
+    ): Response|null {
         return null;
     }
 

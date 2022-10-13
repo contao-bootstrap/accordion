@@ -11,15 +11,15 @@
  * last-updated: 2018-07-03T13:42:48+00:00
  */
 
-$GLOBALS['TL_LANG']['CTE']['bs_panel']                  = 'Panel';
-$GLOBALS['TL_LANG']['CTE']['bs_panel_end']['0']         = 'Panel-Ende';
-$GLOBALS['TL_LANG']['CTE']['bs_panel_end']['1']         = 'Panel-Endelement';
-$GLOBALS['TL_LANG']['CTE']['bs_panel_group_end']['0']   = 'Panelgruppen-Ende';
-$GLOBALS['TL_LANG']['CTE']['bs_panel_group_end']['1']   = 'Panelgruppen-Endelement';
-$GLOBALS['TL_LANG']['CTE']['bs_panel_group_start']['0'] = 'Panelgruppen-Start';
-$GLOBALS['TL_LANG']['CTE']['bs_panel_group_start']['1'] = 'Panelgruppen-Startelement';
-$GLOBALS['TL_LANG']['CTE']['bs_panel_single']['0']      = 'Panel-Einzelelement';
-$GLOBALS['TL_LANG']['CTE']['bs_panel_single']['1']      = 'Panel-Einzelelement';
-$GLOBALS['TL_LANG']['CTE']['bs_panel_start']['0']       = 'Panel-Start';
-$GLOBALS['TL_LANG']['CTE']['bs_panel_start']['1']       = 'Panel-Startelement';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion']                  = 'Akkordion';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_end']['0']         = 'Akkordion-Ende';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_end']['1']         = 'Akkordion-Endelement';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_group_end']['0']   = 'Akkordiongruppe-Ende';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_group_end']['1']   = 'Akkordiongruppe-Endelement';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_group_start']['0'] = 'Akkordiongruppe-Start';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_group_start']['1'] = 'Akkordiongruppe-Startelement';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_single']['0']      = 'Akkordion-Einzelelement';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_single']['1']      = 'Akkordion-Einzelelement';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_start']['0']       = 'Akkordion-Start';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_start']['1']       = 'Akkordion-Startelement';
 

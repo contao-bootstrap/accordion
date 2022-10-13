@@ -4,7 +4,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services
         http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="ContaoBootstrap\Panel\Components\ContentElement\PanelGroupStartElementController">
+        <service id="ContaoBootstrap\Accordion\Components\ContentElement\AccordionGroupStartElementController">
             <argument type="service" id="netzmacht.contao_toolkit.template_renderer"/>
             <argument type="service" id="netzmacht.contao_toolkit.routing.scope_matcher"/>
             <argument type="service" id="netzmacht.contao_toolkit.response_tagger"/>
@@ -13,7 +13,7 @@
             <argument type="service" id="netzmacht.contao_toolkit.repository_manager"/>
         </service>
 
-        <service id="ContaoBootstrap\Panel\Components\ContentElement\PanelGroupEndElementController">
+        <service id="ContaoBootstrap\Accordion\Components\ContentElement\AccordionGroupEndElementController">
             <argument type="service" id="netzmacht.contao_toolkit.template_renderer"/>
             <argument type="service" id="netzmacht.contao_toolkit.routing.scope_matcher"/>
             <argument type="service" id="netzmacht.contao_toolkit.response_tagger"/>
@@ -22,7 +22,7 @@
             <argument type="service" id="netzmacht.contao_toolkit.repository_manager"/>
         </service>
 
-        <service id="ContaoBootstrap\Panel\Components\ContentElement\PanelSingleElementController">
+        <service id="ContaoBootstrap\Accordion\Components\ContentElement\AccordionSingleElementController">
             <argument type="service" id="netzmacht.contao_toolkit.template_renderer"/>
             <argument type="service" id="netzmacht.contao_toolkit.routing.scope_matcher"/>
             <argument type="service" id="netzmacht.contao_toolkit.response_tagger"/>
@@ -32,7 +32,7 @@
             <argument>%kernel.project_dir%</argument>
         </service>
 
-        <service id="ContaoBootstrap\Panel\Components\ContentElement\PanelStartElementController">
+        <service id="ContaoBootstrap\Accordion\Components\ContentElement\AccordionStartElementController">
             <argument type="service" id="netzmacht.contao_toolkit.template_renderer"/>
             <argument type="service" id="netzmacht.contao_toolkit.routing.scope_matcher"/>
             <argument type="service" id="netzmacht.contao_toolkit.response_tagger"/>
@@ -41,7 +41,7 @@
             <argument type="service" id="netzmacht.contao_toolkit.repository_manager"/>
         </service>
 
-        <service id="ContaoBootstrap\Panel\Components\ContentElement\PanelEndElementController">
+        <service id="ContaoBootstrap\Accordion\Components\ContentElement\AccordionEndElementController">
             <argument type="service" id="netzmacht.contao_toolkit.template_renderer"/>
             <argument type="service" id="netzmacht.contao_toolkit.routing.scope_matcher"/>
             <argument type="service" id="netzmacht.contao_toolkit.response_tagger"/>
@@ -49,6 +49,11 @@
             <argument type="service" id="contao_bootstrap.core.helper.color_rotate"/>
             <argument type="service" id="netzmacht.contao_toolkit.repository_manager"/>
             <argument>%kernel.project_dir%</argument>
+        </service>
+
+        <service id="ContaoBootstrap\Accordion\Migration\PanelMigration">
+            <argument type="service" id="database_connection"/>
+            <tag name="contao.migration"/>
         </service>
     </services>
 </container>

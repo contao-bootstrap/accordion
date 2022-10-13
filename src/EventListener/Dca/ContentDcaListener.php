@@ -2,84 +2,25 @@
 
 declare(strict_types=1);
 
-namespace ContaoBootstrap\Panel\EventListener\Dca;
+namespace ContaoBootstrap\Accordion\EventListener\Dca;
 
-use Contao\ContentModel;
-use Contao\CoreBundle\Framework\Adapter;
-use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\CoreBundle\ServiceAnnotation\Callback;
 use Contao\DataContainer;
-use Contao\Model\Collection;
-
-use function sprintf;
 
 final class ContentDcaListener
 {
-    private ContaoFramework $framework;
-
     /**
-     * Content repository.
+     * Generate a accordion name if not given.
      *
-     * @var Adapter<ContentModel>
-     */
-    private Adapter $repository;
-
-    public function __construct(ContaoFramework $framework)
-    {
-        $this->framework  = $framework;
-        $this->repository = $this->framework->getAdapter(ContentModel::class);
-    }
-
-    /**
-     * Get the panel group options.
-     *
-     * @param DataContainer|null $dataContainer Data container driver.
-     *
-     * @return array<int|string,string>
-     */
-    public function panelGroupOptions($dataContainer = null): array
-    {
-        $columns = ['tl_content.type = ?'];
-        $values  = ['bs_panel_group_start'];
-
-        if ($dataContainer && $dataContainer->activeRecord) {
-            $columns[] = 'tl_content.pid = ?';
-            $columns[] = 'tl_content.ptable = ?';
-            $columns[] = 'tl_content.sorting < ?';
-
-            $values[] = $dataContainer->activeRecord->pid;
-            $values[] = $dataContainer->activeRecord->ptable;
-            $values[] = $dataContainer->activeRecord->sorting;
-        }
-
-        $collection = $this->repository->findBy($columns, $values, ['order' => 'tl_content.sorting ASC']);
-        $options    = [];
-
-        if ($collection instanceof Collection) {
-            foreach ($collection as $model) {
-                $options[$model->id] = sprintf(
-                    '%s [%s]',
-                    $model->bs_panel_name,
-                    $model->id
-                );
-            }
-        }
-
-        return $options;
-    }
-
-    /**
-     * Generate a panel name if not given.
-     *
-     * @param string|null   $value         Panel name.
+     * @param string|null   $value         Accordion name.
      * @param DataContainer $dataContainer Data container driver.
      *
-     * @Callback(table="tl_content", target="fields.bs_panel_name.save")
+     * @Callback(table="tl_content", target="fields.bs_accordion_name.save")
      */
-    public function generatePanelName(?string $value, DataContainer $dataContainer): string
+    public function generateAccordionName(string|null $value, DataContainer $dataContainer): string
     {
         if (! $value && $dataContainer->activeRecord) {
-            $value = 'panel_' . $dataContainer->activeRecord->id;
+            $value = 'accordion_' . $dataContainer->activeRecord->id;
         }
 
         return (string) $value;

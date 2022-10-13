@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ContaoBootstrap\Panel\Components\ContentElement;
+namespace ContaoBootstrap\Accordion\Components\ContentElement;
 
 use Contao\ContentModel;
 use Contao\Model;
@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 use function is_string;
 
-abstract class AbstractPanelStartElementController extends AbstractPanelElementController
+abstract class AbstractAccordionStartElementController extends AbstractAccordionElementController
 {
     /** {@inheritDoc} */
     protected function prepareTemplateData(array $data, Request $request, Model $model): array
     {
-        $cssId = $data['cssId'] ?? 'panel-' . $model->id;
+        $cssId = $data['cssId'] ?? 'accordion-' . $model->id;
 
         $data['expanded']   = (bool) $model->bs_expanded;
         $data['headingId']  = $cssId . '-heading';
@@ -27,11 +27,11 @@ abstract class AbstractPanelStartElementController extends AbstractPanelElementC
     }
 
     /**
-     * Get the panel group id.
+     * Get the accordion group id.
      */
-    private function getGroupId(ContentModel $model): ?string
+    private function getGroupId(ContentModel $model): string|null
     {
-        $group = $this->getPanelGroup($model);
+        $group = $this->getAccordionGroup($model);
         if (! $group) {
             return null;
         }
@@ -41,6 +41,6 @@ abstract class AbstractPanelStartElementController extends AbstractPanelElementC
             return $cssID[0];
         }
 
-        return 'panel-group-' . $group->id;
+        return 'accordion-group-' . $group->id;
     }
 }

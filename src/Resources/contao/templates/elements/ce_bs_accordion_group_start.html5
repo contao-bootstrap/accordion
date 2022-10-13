@@ -6,6 +6,6 @@
 <?php endif; ?>
 <?php $this->endblock(); ?>
 
-<div class="panel-group"<?= $this->cssID ?> role="tablist" aria-multiselectable="true">
+<div class="accordion"<?= $this->cssID ?> role="tablist" aria-multiselectable="true">
 
 

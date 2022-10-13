@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace ContaoBootstrap\Panel\Components\ContentElement;
+namespace ContaoBootstrap\Accordion\Components\ContentElement;
 
 use Contao\ContentModel;
 use Contao\CoreBundle\ServiceAnnotation\ContentElement;
 use Symfony\Component\HttpFoundation\Response;
 
-/** @ContentElement("bs_panel_group_end", category="bs_panel") */
-final class PanelGroupEndElementController extends AbstractPanelElementController
+/** @ContentElement("bs_accordion_group_end", category="bs_accordion") */
+final class AccordionGroupEndElementController extends AbstractAccordionElementController
 {
     protected function renderContentBackendView(ContentModel $model): Response
     {

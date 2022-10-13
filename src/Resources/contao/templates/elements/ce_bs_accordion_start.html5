@@ -1,0 +1,22 @@
+<?php if (! $this->groupId): ?><div class="accordion"><?php endif ?>
+  <div class="<?= $this->class ?> accordion-item"<?= $this->cssID ?>>
+    <div class="accordion-header" id="<?= $this->headingId ?>">
+        <<?= $this->hl ?> class="mb-0">
+            <button class="accordion-button<?php if (!$this->expanded): ?> collapsed<?php endif ?>"
+                    type="button"
+                    role="tab"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#<?= $this->collapseId ?>"
+                    aria-expanded="<?= $this->expanded ? 'true' : 'false' ?>"
+                    aria-controls="<?= $this->collapseId ?>">
+                <?= $this->headline ?>
+            </button>
+        </<?= $this->hl ?>>
+    </div>
+
+    <div id="<?= $this->collapseId ?>"
+         class="accordion-collapse collapse<?php if ($this->expanded): ?> show<?php endif ?>"
+         role="tabpanel"
+         aria-labelledby="<?= $this->headingId ?>"
+         <?php if ($this->groupId): ?>data-bs-parent="#<?= $this->groupId ?>"<?php endif ?>>
+        <div class="accordion-body">

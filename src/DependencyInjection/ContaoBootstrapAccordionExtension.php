@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace ContaoBootstrap\Panel\DependencyInjection;
+namespace ContaoBootstrap\Accordion\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
-final class ContaoBootstrapPanelExtension extends Extension
+final class ContaoBootstrapAccordionExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -18,7 +18,7 @@ final class ContaoBootstrapPanelExtension extends Extension
     {
         $loader = new XmlFileLoader(
             $container,
-            new FileLocator(__DIR__ . '/../Resources/config')
+            new FileLocator(__DIR__ . '/../Resources/config'),
         );
 
         $loader->load('listener.xml');

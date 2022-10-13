@@ -6,17 +6,15 @@ declare(strict_types=1);
  * Palettes
  */
 
-// buttons palette
-// panel palettes
-$GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_panel_group_start'] = [
-    'type'           => ['type', 'bs_panel_name', 'headline'],
+$GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_accordion_group_start'] = [
+    'type'           => ['type', 'bs_accordion_name', 'headline'],
     'template'       => [':hide', 'customTpl'],
     'protected'      => [':hide', 'protected'],
     'expert'         => [':hide', 'guests', 'cssID'],
     'invisible'      => ['invisible', 'start', 'stop'],
 ];
 
-$GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_panel_group_end'] = [
+$GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_accordion_group_end'] = [
     'type'           => ['type'],
     'template'       => [':hide', 'customTpl'],
     'protected'      => [':hide', 'protected'],
@@ -24,16 +22,16 @@ $GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_panel_group_end'] = [
     'invisible'      => ['invisible', 'start', 'stop'],
 ];
 
-$GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_panel_start'] = [
+$GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_accordion_start'] = [
     'type'           => ['type', 'headline'],
-    'config'         => ['bs_panel_group', 'bs_expanded'],
+    'config'         => ['bs_accordion_group', 'bs_expanded'],
     'template'       => [':hide', 'customTpl'],
     'protected'      => [':hide', 'protected'],
     'expert'         => [':hide', 'guests', 'cssID'],
     'invisible'      => ['invisible', 'start', 'stop'],
 ];
 
-$GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_panel_end'] = [
+$GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_accordion_end'] = [
     'type'           => ['type'],
     'template'       => [':hide', 'customTpl'],
     'protected'      => [':hide', 'protected'],
@@ -41,11 +39,11 @@ $GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_panel_end'] = [
     'invisible'      => ['invisible', 'start', 'stop'],
 ];
 
-$GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_panel_single'] = [
+$GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_accordion_single'] = [
     'type'           => ['type', 'headline'],
     'text'           => ['text'],
     'image'          => ['addImage'],
-    'config'         => ['bs_panel_group', 'bs_expanded'],
+    'config'         => ['bs_accordion_group', 'bs_expanded'],
     'template'       => [':hide', 'customTpl'],
     'protected'      => [':hide', 'protected'],
     'expert'         => [':hide', 'guests', 'cssID'],
@@ -64,7 +62,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['bs_expanded'] = [
     'sql'       => "char(1) NOT NULL default ''",
 ];
 
-$GLOBALS['TL_DCA']['tl_content']['fields']['bs_panel_name'] = [
+$GLOBALS['TL_DCA']['tl_content']['fields']['bs_accordion_name'] = [
     'exclude'       => true,
     'inputType'     => 'text',
     'reference'     => &$GLOBALS['TL_LANG']['tl_content'],

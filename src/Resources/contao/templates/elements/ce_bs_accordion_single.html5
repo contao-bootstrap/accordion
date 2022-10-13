@@ -1,10 +1,11 @@
-<div class="<?= $this->class ?> card"<?= $this->cssID ?>>
-    <div class="card-header" id="<?= $this->headingId ?>">
+<?php if (! $this->groupId): ?><div class="accordion"><?php endif ?>
+<div class="<?= $this->class ?> accordion-item"<?= $this->cssID ?>>
+    <div class="accordion-header" id="<?= $this->headingId ?>">
         <<?= $this->hl ?> class="mb-0">
-            <button class="btn btn-link<?php if (!$this->expanded): ?> collapsed<?php endif ?>"
+            <button class="accordion-button<?php if (!$this->expanded): ?> collapsed<?php endif ?>"
                     type="button"
-                    data-toggle="collapse"
-                    data-target="#<?= $this->collapseId ?>"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#<?= $this->collapseId ?>"
                     role="tab"
                     aria-expanded="<?= $this->expanded ? 'true' : 'false' ?>"
                     aria-controls="<?= $this->collapseId ?>">
@@ -14,11 +15,11 @@
     </div>
 
     <div id="<?= $this->collapseId ?>"
-         class="collapse<?php if ($this->expanded): ?> show<?php endif ?>"
+         class="accordion-collapse collapse<?php if ($this->expanded): ?> show<?php endif ?>"
          role="tabpanel"
          aria-labelledby="<?= $this->headingId ?>"
-         <?php if ($this->groupId): ?>data-parent="#<?= $this->groupId ?>"<?php endif ?>>
-        <div class="card-body">
+         <?php if ($this->groupId): ?>data-bs-parent="#<?= $this->groupId ?>"<?php endif ?>>
+        <div class="accordion-body">
             <?php if (!$this->addBefore): ?>
                 <?= $this->text ?>
             <?php endif; ?>
@@ -33,3 +34,4 @@
         </div>
     </div>
 </div>
+<?php if (! $this->groupId): ?></div><?php endif ?>
