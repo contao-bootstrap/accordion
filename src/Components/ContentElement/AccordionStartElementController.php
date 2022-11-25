@@ -6,7 +6,7 @@ namespace ContaoBootstrap\Accordion\Components\ContentElement;
 
 use Contao\CoreBundle\ServiceAnnotation\ContentElement;
 
-/** @ContentElement("bs_accordion_start", category="bs_accordion") */
+/** @ContentElement("bs_accordion_start", category="bs_accordion", template="ce_bs_accordion_start") */
 final class AccordionStartElementController extends AbstractAccordionStartElementController
 {
 }

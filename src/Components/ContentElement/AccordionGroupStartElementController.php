@@ -8,7 +8,7 @@ use Contao\CoreBundle\ServiceAnnotation\ContentElement;
 use Contao\Model;
 use Symfony\Component\HttpFoundation\Request;
 
-/** @ContentElement("bs_accordion_group_start", category="bs_accordion") */
+/** @ContentElement("bs_accordion_group_start", category="bs_accordion", template="ce_bs_accordion_group_start") */
 final class AccordionGroupStartElementController extends AbstractAccordionElementController
 {
     /** {@inheritDoc} */

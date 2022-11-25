@@ -23,7 +23,7 @@ use function array_merge;
 use function assert;
 use function is_file;
 
-/** @ContentElement("bs_accordion_single", category="bs_accordion") */
+/** @ContentElement("bs_accordion_single", category="bs_accordion", template="ce_bs_accordion_single") */
 final class AccordionSingleElementController extends AbstractAccordionStartElementController
 {
     public function __construct(
