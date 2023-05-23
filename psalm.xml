@@ -11,6 +11,12 @@
     </projectFiles>
 
     <issueHandlers>
+        <DeprecatedConstant>
+            <errorLevel type="suppress">
+                <!-- Doctrine\DBAL\Connection::PARAM_STR_ARRAY is used here, deprecated since 3.6.0 -->
+                <file name="src/Migration/PanelMigration.php"/>
+            </errorLevel>
+        </DeprecatedConstant>
         <DeprecatedMethod>
             <errorLevel type="suppress">
                 <referencedMethod name="Contao\Controller::addImageToTemplate"/>
@@ -22,6 +28,11 @@
                 <referencedMethod name="Contao\CoreBundle\Framework\Adapter::__call"/>
             </errorLevel>
         </InternalMethod>
+        <UndefinedMagicPropertyFetch>
+            <errorLevel type="suppress">
+                <referencedProperty name="Contao\DataContainer::$activeRecord"/>
+            </errorLevel>
+        </UndefinedMagicPropertyFetch>
     </issueHandlers>
 
     <universalObjectCrates>
