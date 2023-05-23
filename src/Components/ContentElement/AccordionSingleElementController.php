@@ -4,15 +4,11 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Accordion\Components\ContentElement;
 
-use Contao\Controller;
+use Contao\CoreBundle\Image\Studio\Studio;
 use Contao\CoreBundle\Security\Authentication\Token\TokenChecker;
 use Contao\CoreBundle\ServiceAnnotation\ContentElement;
-use Contao\FilesModel;
-use Contao\FrontendTemplate;
 use Contao\Model;
 use ContaoBootstrap\Core\Helper\ColorRotate;
-use Netzmacht\Contao\Toolkit\Data\Model\ContaoRepository;
-use Netzmacht\Contao\Toolkit\Data\Model\RepositoryManager;
 use Netzmacht\Contao\Toolkit\Response\ResponseTagger;
 use Netzmacht\Contao\Toolkit\Routing\RequestScopeMatcher;
 use Netzmacht\Contao\Toolkit\View\Template\TemplateRenderer;
@@ -20,8 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use function array_merge;
-use function assert;
-use function is_file;
 
 /** @ContentElement("bs_accordion_single", category="bs_accordion", template="ce_bs_accordion_single") */
 final class AccordionSingleElementController extends AbstractAccordionStartElementController
@@ -32,8 +26,7 @@ final class AccordionSingleElementController extends AbstractAccordionStartEleme
         ResponseTagger $responseTagger,
         TokenChecker $tokenChecker,
         ColorRotate $colorRotate,
-        private RepositoryManager $repositoryManager,
-        private string $projectDir,
+        private readonly Studio $imageStudio,
     ) {
         parent::__construct($templateRenderer, $scopeMatcher, $responseTagger, $tokenChecker, $colorRotate);
     }
@@ -55,17 +48,15 @@ final class AccordionSingleElementController extends AbstractAccordionStartEleme
 
         // Add an image
         if ($model->addImage && ! empty($model->singleSRC)) {
-            $repository = $this->repositoryManager->getRepository(FilesModel::class);
-            assert($repository instanceof ContaoRepository);
-            $fileModel = $repository->findByUuid($model->singleSRC);
+            $figure = $this->imageStudio->createFigureBuilder()
+                ->from($model->singleSRC)
+                ->setSize($model->size)
+                ->setMetadata($model->getOverwriteMetadata())
+                ->enableLightbox($model->fullsize)
+                ->buildIfResourceExists();
 
-            if ($fileModel !== null && is_file($this->projectDir . '/' . $fileModel->path)) {
-                $data['singleSRC'] = $fileModel->path;
-
-                $template = new FrontendTemplate();
-                Controller::addImageToTemplate($template, $data, null, null, $fileModel);
-
-                $data = array_merge($data, $template->getData());
+            if ($figure) {
+                $data = array_merge($data, $figure->getLegacyTemplateData(null, $model->floating));
             }
         }
 

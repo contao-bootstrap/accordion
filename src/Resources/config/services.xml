@@ -28,8 +28,7 @@
             <argument type="service" id="netzmacht.contao_toolkit.response_tagger"/>
             <argument type="service" id="contao.security.token_checker"/>
             <argument type="service" id="contao_bootstrap.core.helper.color_rotate"/>
-            <argument type="service" id="netzmacht.contao_toolkit.repository_manager"/>
-            <argument>%kernel.project_dir%</argument>
+            <argument type="service" id="contao.image.studio"/>
         </service>
 
         <service id="ContaoBootstrap\Accordion\Components\ContentElement\AccordionStartElementController">
