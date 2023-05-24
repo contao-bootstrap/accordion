@@ -19,7 +19,7 @@
          role="tabpanel"
          aria-labelledby="<?= $this->headingId ?>"
          <?php if ($this->groupId): ?>data-bs-parent="#<?= $this->groupId ?>"<?php endif ?>>
-        <div class="accordion-body">
+        <div class="accordion-body clearfix">
             <?php if (!$this->addBefore): ?>
                 <?= $this->text ?>
             <?php endif; ?>
