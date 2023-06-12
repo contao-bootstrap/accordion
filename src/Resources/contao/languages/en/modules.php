@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * content elements
  */
-$GLOBALS['TL_LANG']['CTE']['bs_accordion'] = 'Accordion';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion'] = 'Bootstrap Accordion';
 
 $GLOBALS['TL_LANG']['CTE']['bs_accordion_group_start'][0] = 'Bootstrap accordion group start';
 $GLOBALS['TL_LANG']['CTE']['bs_accordion_group_start'][1] = 'Bootstrap accordion group start element';
