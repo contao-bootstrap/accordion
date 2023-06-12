@@ -5,6 +5,17 @@ Changelog
 Unreleased
 ----------
 
+3.0.0
+-----
+
+### Changed
+
+ - Change name from panel to accordion
+ - Use new accordion component of Bootstrap 5
+
+2.2.0
+-----
+
 ### Changed
 
  - Bump minimum PHP version to 7.4
@@ -13,7 +24,7 @@ Unreleased
  - Changed coding standard
  - Rewrite content elements to fragment controller
 
-[Full Changelog](https://github.com/contao-bootstrap/panel/compare/master...develop)
+[Full Changelog](https://github.com/contao-bootstrap/panel/compare/2.1.3...2.2.0)
 
 2.1.2 (2020-01-21)
 ------------------

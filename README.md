@@ -4,7 +4,7 @@ Contao-Bootstrap Accordion
 [![Version](http://img.shields.io/packagist/v/contao-bootstrap/accordion.svg?style=for-the-badge&label=Latest)](http://packagist.org/packages/contao-bootstrap/accordion)
 [![GitHub issues](https://img.shields.io/github/issues/contao-bootstrap/accordion.svg?style=for-the-badge&logo=github)](https://github.com/contao-bootstrap/accordion/issues)
 [![License](http://img.shields.io/packagist/l/contao-bootstrap/accordion.svg?style=for-the-badge&label=License)](http://packagist.org/packages/contao-bootstrap/accordion)
-[![Build Status](https://img.shields.io/github/workflow/status/contao-bootstrap/accordion/Code%20Quality%20Diagnostics?logo=githubactions&logoColor=%23fff&style=for-the-badge)](https://github.com/contao-bootstrap/accordion/actions)
+[![Build Status](https://img.shields.io/github/workflow/status/contao-bootstrap/accordion/contao-bootrap-accordion?logo=githubactions&logoColor=%23fff&style=for-the-badge)](https://github.com/contao-bootstrap/accordion/actions)
 [![Downloads](http://img.shields.io/packagist/dt/contao-bootstrap/accordion.svg?style=for-the-badge&label=Downloads)](http://packagist.org/packages/contao-bootstrap/accordion)
 
 This extension provides Bootstrap integration into Contao.
@@ -56,7 +56,7 @@ class AppKernel
     {
         $bundles = [
             // ...
-            new Contao\CoreBundle\HttpKernel\Bundle\ContaoModuleBundle('metapalettes', $this->getRootDir()),
+            new \ContaoCommunityAlliance\MetaPalettes\CcaMetaPalettesBundle(),
             new Netzmacht\Contao\Toolkit\Bundle\NetzmachtContaoToolkitBundle(),
             new ContaoBootstrap\Core\ContaoBootstrapCoreBundle(),
             new ContaoBootstrap\Grid\ContaoBootstrapAccordionBundle()
