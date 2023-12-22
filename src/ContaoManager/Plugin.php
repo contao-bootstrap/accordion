@@ -14,7 +14,7 @@ use ContaoBootstrap\Core\ContaoBootstrapCoreBundle;
 final class Plugin implements BundlePluginInterface
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getBundles(ParserInterface $parser): array
     {
