@@ -19,6 +19,7 @@ final class ContentDcaListener
      */
     public function generateAccordionName(string|null $value, DataContainer $dataContainer): string
     {
+        /** @psalm-suppress RiskyTruthyFalsyComparison */
         if (! $value && $dataContainer->activeRecord) {
             $value = 'accordion_' . $dataContainer->activeRecord->id;
         }

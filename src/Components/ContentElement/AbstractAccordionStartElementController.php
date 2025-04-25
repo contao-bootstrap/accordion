@@ -7,6 +7,7 @@ namespace ContaoBootstrap\Accordion\Components\ContentElement;
 use Contao\ContentModel;
 use Contao\Model;
 use Contao\StringUtil;
+use Override;
 use Symfony\Component\HttpFoundation\Request;
 
 use function is_string;
@@ -14,6 +15,7 @@ use function is_string;
 abstract class AbstractAccordionStartElementController extends AbstractAccordionElementController
 {
     /** {@inheritDoc} */
+    #[Override]
     protected function prepareTemplateData(array $data, Request $request, Model $model): array
     {
         $cssId = $data['cssId'] ?? 'accordion-' . $model->id;

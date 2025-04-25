@@ -6,7 +6,9 @@ namespace ContaoBootstrap\Accordion\Migration;
 
 use Contao\CoreBundle\Migration\AbstractMigration;
 use Contao\CoreBundle\Migration\MigrationResult;
+use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
+use Override;
 
 final class PanelMigration extends AbstractMigration
 {
@@ -14,6 +16,7 @@ final class PanelMigration extends AbstractMigration
     {
     }
 
+    #[Override]
     public function shouldRun(): bool
     {
         $schemaManager = $this->connection->createSchemaManager();
@@ -29,6 +32,7 @@ final class PanelMigration extends AbstractMigration
         return $this->hasPanelElements();
     }
 
+    #[Override]
     public function run(): MigrationResult
     {
         $this->migrateElementTypes();
@@ -51,7 +55,7 @@ final class PanelMigration extends AbstractMigration
                     'bs_panel_end',
                 ],
             ],
-            ['types' => Connection::PARAM_STR_ARRAY],
+            ['types' => ArrayParameterType::STRING],
         );
 
         return $result->fetchOne() > 0;

@@ -13,6 +13,7 @@ use Netzmacht\Contao\Toolkit\Controller\ContentElement\AbstractContentElementCon
 use Netzmacht\Contao\Toolkit\Response\ResponseTagger;
 use Netzmacht\Contao\Toolkit\Routing\RequestScopeMatcher;
 use Netzmacht\Contao\Toolkit\View\Template\TemplateRenderer;
+use Override;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -29,6 +30,7 @@ abstract class AbstractAccordionElementController extends AbstractContentElement
     }
 
     /** {@inheritDoc} */
+    #[Override]
     protected function preGenerate(
         Request $request,
         Model $model,

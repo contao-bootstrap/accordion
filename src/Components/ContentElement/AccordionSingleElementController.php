@@ -12,6 +12,7 @@ use ContaoBootstrap\Core\Helper\ColorRotate;
 use Netzmacht\Contao\Toolkit\Response\ResponseTagger;
 use Netzmacht\Contao\Toolkit\Routing\RequestScopeMatcher;
 use Netzmacht\Contao\Toolkit\View\Template\TemplateRenderer;
+use Override;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -32,6 +33,7 @@ final class AccordionSingleElementController extends AbstractAccordionStartEleme
     }
 
     /** {@inheritDoc} */
+    #[Override]
     protected function preGenerate(
         Request $request,
         Model $model,
@@ -42,6 +44,7 @@ final class AccordionSingleElementController extends AbstractAccordionStartEleme
     }
 
     /** {@inheritDoc} */
+    #[Override]
     protected function prepareTemplateData(array $data, Request $request, Model $model): array
     {
         $data = parent::prepareTemplateData($data, $request, $model);
