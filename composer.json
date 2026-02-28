@@ -36,10 +36,10 @@
     "contao/core-bundle": "^4.13 || ^5.3",
     "doctrine/dbal": "^3.3",
     "netzmacht/contao-toolkit": "^3.9 || ^4.0",
-    "symfony/config": "^5.4 || ^6.0",
-    "symfony/dependency-injection": "^5.4 || ^6.0",
-    "symfony/http-foundation": "^5.4 || ^6.0",
-    "symfony/http-kernel": "^5.4 || ^6.0"
+    "symfony/config": "^5.4 || ^6.0 || ^7.0",
+    "symfony/dependency-injection": "^5.4 || ^6.0 || ^7.0",
+    "symfony/http-foundation": "^5.4 || ^6.0 || ^7.0",
+    "symfony/http-kernel": "^5.4 || ^6.0 || ^7.0"
   },
   "require-dev": {
     "contao/manager-plugin": "^2.1",
