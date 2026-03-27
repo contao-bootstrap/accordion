@@ -1,0 +1,29 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+
+{% block content %}
+  {% if isBackend %}
+    <div><span
+        style="color: {{ color }}">{{ group }}</span>{% if headline.value is defined and headline.value is not same as'' %}: {{ headline.value }}{% endif %}
+    </div>
+    <ul>
+      {% for fragment in nested_fragments %}
+        {% set contentModel = content_model(fragment.attributes.contentModel) %}
+        <li>
+          <div class="tl_content click2edit toggle_select">
+            <div class="cte_type published">{{ ('CTE.'  ~ contentModel.type ~ '.0')|trans({}, 'contao_modules') }}</div>
+            <div class="cte_preview" style="contain:paint">
+              {{ content_element(fragment) }}
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="accordion" id="{{ groupId }}" role="tablist" aria-multiselectable="true">
+      {% for fragment in nested_fragments %}
+        {{ content_element(fragment) }}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+{% endblock %}

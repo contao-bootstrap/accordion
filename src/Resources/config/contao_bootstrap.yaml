@@ -1,0 +1,4 @@
+contao_bootstrap:
+  backend:
+    css:
+      - 'contao_bootstrap_accordion::css/backend.css'

@@ -5,6 +5,22 @@ declare(strict_types=1);
 /*
  * Palettes
  */
+$GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_accordion_group_wrapper'] = [
+    'type'           => ['type', 'bs_accordion_name', 'headline'],
+    'template'       => [':hide', 'customTpl'],
+    'protected'      => [':hide', 'protected'],
+    'expert'         => [':hide', 'guests', 'cssID'],
+    'invisible'      => ['invisible', 'start', 'stop'],
+];
+
+$GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_accordion_wrapper'] = [
+    'type'           => ['type', 'headline'],
+    'config'         => ['bs_expanded'],
+    'template'       => [':hide', 'customTpl'],
+    'protected'      => [':hide', 'protected'],
+    'expert'         => [':hide', 'guests', 'cssID'],
+    'invisible'      => ['invisible', 'start', 'stop'],
+];
 
 $GLOBALS['TL_DCA']['tl_content']['metapalettes']['bs_accordion_group_start'] = [
     'type'           => ['type', 'bs_accordion_name', 'headline'],
