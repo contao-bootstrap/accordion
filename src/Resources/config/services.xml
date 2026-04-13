@@ -76,9 +76,5 @@
             <argument>%contao_bootstrap.grid.enable_wrapper_migration%</argument>
             <tag name="contao.migration"/>
         </service>
-
-        <service id="ContaoBootstrap\Accordion\Twig\Functions\ContentModel">
-            <tag name="twig.extension"/>
-        </service>
     </services>
 </container>
