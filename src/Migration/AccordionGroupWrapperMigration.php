@@ -122,7 +122,7 @@ SQL;
 
         return $this->createResult(
             true,
-            'Migrated ' . count($groupContainers) . ' grid containers and ' . $elementCount . ' elements.'
+            'Migrated ' . count($groupContainers) . ' group containers and ' . $elementCount . ' elements.'
         );
     }
 }
