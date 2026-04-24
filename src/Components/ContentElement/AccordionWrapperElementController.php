@@ -25,8 +25,16 @@ final class AccordionWrapperElementController extends AbstractContentElementCont
     #[Override]
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
-        $group = $this->getGroup($model);
+        if ($this->isBackendScope($request)) {
+            $template->setName('backend/accordion_wildcard');
 
+            $template->set('title', $this->getTitle($model));
+            $template->set('color', $this->colorRotate->getColor('ce:' . $model->id));
+
+            return $template->getResponse();
+        }
+
+        $group = $this->getGroup($model);
         $cssId = 'accordion-' . $model->id;
 
         $template->set('expanded', (bool) $model->bs_expanded);
@@ -34,10 +42,6 @@ final class AccordionWrapperElementController extends AbstractContentElementCont
         $template->set('collapseId', $cssId . '-collapse');
         $template->set('groupId', $group ? 'accordion-group-' . $group->id : null);
         $template->set('cssId', $cssId);
-
-        $template->set('color', $this->colorRotate->getColor('ce:' . $model->id));
-        $template->set('isBackend', $this->isBackendScope($request));
-        $template->set('headline', StringUtil::deserialize($model->headline, true));
 
         return $template->getResponse();
     }
@@ -48,5 +52,12 @@ final class AccordionWrapperElementController extends AbstractContentElementCont
             ['id=?', 'type=?'],
             [$model->pid, 'bs_accordion_group_wrapper'],
         );
+    }
+
+    private function getTitle(ContentModel $model): string
+    {
+        $headline = StringUtil::deserialize($model->headline, true);
+
+        return $headline['value'] ?? '';
     }
 }

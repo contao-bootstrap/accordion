@@ -1,45 +1,49 @@
-{% if isBackend %}
-<div><span style="color: {{ color }}">{{ headline.value }}</span></div>
-<ul>
-  {% for fragment in nested_fragments %}
-    {% set contentModel = content_model(fragment.attributes.contentModel) %}
-    <li>
-      <div class="tl_content click2edit toggle_select">
-        <div class="cte_type published">{{ ('CTE.'  ~ contentModel.type ~ '.0')|trans({}, 'contao_modules') }}</div>
-        <div class="cte_preview" style="contain:paint">
-          {{ content_element(fragment) }}
-        </div>
-      </div>
-    </li>
-  {% endfor %}
-</ul>
-{% else %}
+{% set attributes = attrs()
+  .setIfExists('id', element_html_id|default('accordion-' ~ data.id))
+  .addClass([element_css_classes, "content-#{type|replace({'_': '-'})}", "accordion-item"])
+  .mergeWith(attributes|default) %}
+
 {% if not groupId %}
 <div class="accordion">
   {% endif %}
-  <div class="{{ class }} accordion-item"{{ cssID }}>
+  <div {{ attributes }}>
     <div class="accordion-header" id="{{ headingId }}">
-      <{{ headline.unit }} class="mb-0">
-      <button class="accordion-button{% if not expanded %} collapsed{% endif %}"
-              type="button"
-              role="tab"
-              data-bs-toggle="collapse"
-              data-bs-target="#{{ collapseId }}"
-              aria-expanded="{{ expanded ? 'true' : 'false' }}"
-              aria-controls="{{ collapseId }}">
-        {{ headline.value }}
-      </button>
-    </{{ headline.unit }}>
-  </div>
+      {% set headline_boostrap_attributes = attrs()
+        .addClass('mb-0') %}
 
-  <div id="{{ collapseId }}"
-       class="accordion-collapse collapse{% if expanded %} show{% endif %}"
-       role="tabpanel"
-       aria-labelledby="{{ headingId }}"
-       {% if groupId %}data-bs-parent="#{{ groupId }}"{% endif %}>
-    <div class="accordion-body">
-      {% for fragment in nested_fragments %}
-        {{ content_element(fragment) }}
-      {% endfor %}    </div>
+      {% set headline = headline|merge({
+        attributes: headline.attributes|default(attrs()).mergeWith(headline_boostrap_attributes)
+      }) %}
+
+      {% embed '@Contao/component/_headline.html.twig' with {
+        headline: headline
+      } only %}
+        {% block headline_inner %}
+          <button class="accordion-button{% if not expanded %} collapsed{% endif %}"
+                  type="button"
+                  role="tab"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#{{ collapseId }}"
+                  aria-expanded="{{ expanded ? 'true' : 'false' }}"
+                  aria-controls="{{ collapseId }}">
+            {{ headline.text|insert_tag_raw }}
+          </button>
+        {% endblock %}
+      {% endembed %}
+    </div>
+
+    <div id="{{ collapseId }}"
+         class="accordion-collapse collapse{% if expanded %} show{% endif %}"
+         role="tabpanel"
+         aria-labelledby="{{ headingId }}"
+         {% if groupId %}data-bs-parent="#{{ groupId }}"{% endif %}>
+      <div class="accordion-body">
+        {% for fragment in nested_fragments %}
+          {{ content_element(fragment) }}
+        {% endfor %}
+      </div>
+    </div>
   </div>
-  {% endif %}
+  {% if not groupId %}
+</div>
+{% endif %}

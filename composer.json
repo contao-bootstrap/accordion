@@ -42,6 +42,7 @@
     "symfony/http-kernel": "^6.4 || ^7.4"
   },
   "require-dev": {
+    "netzmacht/phpspec-phpcq-plugin": "@dev",
     "contao/manager-plugin": "^2.1",
     "phpcq/runner-bootstrap": "@dev"
   },
