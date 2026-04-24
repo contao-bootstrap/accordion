@@ -15,7 +15,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
-#[AsContentElement('bs_accordion_group_wrapper', 'bs_accordion', nestedFragments: true)]
+#[AsContentElement(
+    'bs_accordion_group_wrapper',
+    'bs_accordion',
+    nestedFragments: ['allowedTypes' => ['bs_accordion_wrapper', 'bs_accordion_single']],
+)]
 final class AccordionGroupWrapperElementController extends AbstractContentElementController
 {
     public function __construct(private readonly ColorRotate $colorRotate)
