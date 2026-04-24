@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Accordion\Twig\Functions;
 
 use Contao\ContentModel as ContaoContentModel;
+use Override;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 final class ContentModel extends AbstractExtension
 {
     /** {@inheritDoc} */
+    #[Override]
     public function getFunctions(): array
     {
         return [

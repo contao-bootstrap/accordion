@@ -28,7 +28,6 @@ final class Plugin implements BundlePluginInterface, ConfigPluginInterface
         return [$bundleConfig];
     }
 
-
     /**
      * {@inheritDoc}
      */

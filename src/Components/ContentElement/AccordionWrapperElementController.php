@@ -11,6 +11,7 @@ use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\Model;
 use Contao\StringUtil;
 use ContaoBootstrap\Core\Helper\ColorRotate;
+use Override;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,16 +20,16 @@ final class AccordionWrapperElementController extends AbstractContentElementCont
 {
     public function __construct(private readonly ColorRotate $colorRotate)
     {
-
     }
 
+    #[Override]
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
         $group = $this->getGroup($model);
 
         $cssId = 'accordion-' . $model->id;
 
-        $template->set('expanded', (bool)$model->bs_expanded);
+        $template->set('expanded', (bool) $model->bs_expanded);
         $template->set('headingId', $cssId . '-heading');
         $template->set('collapseId', $cssId . '-collapse');
         $template->set('groupId', $group ? 'accordion-group-' . $group->id : null);
@@ -45,7 +46,7 @@ final class AccordionWrapperElementController extends AbstractContentElementCont
     {
         return ContentModel::findOneBy(
             ['id=?', 'type=?'],
-            [$model->pid, 'bs_accordion_group_wrapper']
+            [$model->pid, 'bs_accordion_group_wrapper'],
         );
     }
 }
