@@ -15,6 +15,7 @@ use Override;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/** @psalm-suppress PropertyNotSetInConstructor */
 #[AsContentElement('bs_accordion_wrapper', 'bs_accordion', nestedFragments: true)]
 final class AccordionWrapperElementController extends AbstractContentElementController
 {

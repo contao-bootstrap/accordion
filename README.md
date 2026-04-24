@@ -69,6 +69,12 @@ class AppKernel
 Migration
 -------
 
-To automatically migrate your grid from Start- and Stop-Wrappers to nested fragments. You have to enbale the Migration
-by adding `BS_ACCORDION_WRAPPER_MIGRATION=true` parameter to your .env.local. Afterwards you can run the migration in the
-contao manager over by cli.
+To automatically migrate your accordion from Start- and Stop-Wrappers to nested fragments, you have to enable the
+migration by creating `config/packages/contao_bootstrap_accordion.yaml` with the following content:
+
+```yaml
+contao_bootstrap_accordion:
+    enable_wrapper_migration: true
+```
+
+Afterwards you can run the migration in the Contao Manager or via CLI.
