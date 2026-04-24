@@ -23,6 +23,7 @@ final class ContaoBootstrapAccordionExtension extends Extension
             new FileLocator(__DIR__ . '/../Resources/config'),
         );
 
+        $loader->load('config.xml');
         $loader->load('listener.xml');
         $loader->load('services.xml');
     }
