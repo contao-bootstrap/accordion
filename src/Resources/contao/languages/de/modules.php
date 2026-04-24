@@ -1,14 +1,13 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Translations are managed using Transifex. To create a new translation
  * or to help to maintain an existing one, please register at transifex.com.
  *
  * @link https://www.transifex.com/signup/
  * @link https://www.transifex.com/projects/p/contao-bootstrap/language/de/
- *
- * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
- *
- * last-updated: 2018-07-03T13:42:48+00:00
  */
 
 $GLOBALS['TL_LANG']['CTE']['bs_accordion']                  = 'Akkordion';
@@ -22,4 +21,3 @@ $GLOBALS['TL_LANG']['CTE']['bs_accordion_single']['0']      = 'Akkordion-Einzele
 $GLOBALS['TL_LANG']['CTE']['bs_accordion_single']['1']      = 'Akkordion-Einzelelement';
 $GLOBALS['TL_LANG']['CTE']['bs_accordion_start']['0']       = 'Akkordion-Start';
 $GLOBALS['TL_LANG']['CTE']['bs_accordion_start']['1']       = 'Akkordion-Startelement';
-

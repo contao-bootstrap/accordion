@@ -21,7 +21,7 @@ final class PanelMigration extends AbstractMigration
     {
         $schemaManager = $this->connection->createSchemaManager();
 
-        if (! $schemaManager->tablesExist('tl_content')) {
+        if (! $schemaManager->tablesExist(['tl_content'])) {
             return false;
         }
 
