@@ -67,13 +67,13 @@
 
         <service id="ContaoBootstrap\Accordion\Migration\AccordionGroupWrapperMigration">
             <argument type="service" id="database_connection"/>
-            <argument>%contao_bootstrap.grid.enable_wrapper_migration%</argument>
+            <argument>%contao_bootstrap.accordion.enable_wrapper_migration%</argument>
             <tag name="contao.migration"/>
         </service>
 
         <service id="ContaoBootstrap\Accordion\Migration\AccordionWrapperMigration">
             <argument type="service" id="database_connection"/>
-            <argument>%contao_bootstrap.grid.enable_wrapper_migration%</argument>
+            <argument>%contao_bootstrap.accordion.enable_wrapper_migration%</argument>
             <tag name="contao.migration"/>
         </service>
     </services>
