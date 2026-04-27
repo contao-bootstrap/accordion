@@ -17,7 +17,7 @@
 
       {% embed '@Contao/component/_headline.html.twig' with {
         headline: headline
-      } only %}
+      } %}
         {% block headline_inner %}
           <button class="accordion-button{% if not expanded %} collapsed{% endif %}"
                   type="button"
