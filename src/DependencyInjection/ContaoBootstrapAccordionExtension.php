@@ -8,7 +8,7 @@ use Override;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 final class ContaoBootstrapAccordionExtension extends Extension
 {
@@ -26,12 +26,12 @@ final class ContaoBootstrapAccordionExtension extends Extension
             $config['enable_wrapper_migration'],
         );
 
-        $loader = new XmlFileLoader(
+        $loader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__ . '/../Resources/config'),
         );
 
-        $loader->load('listener.xml');
-        $loader->load('services.xml');
+        $loader->load('listener.yaml');
+        $loader->load('services.yaml');
     }
 }
