@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Accordion\Components\ContentElement;
 
-use Contao\CoreBundle\ServiceAnnotation\ContentElement;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 
-/** @ContentElement("bs_accordion_start", category="bs_accordion", template="ce_bs_accordion_start") */
+#[AsContentElement('bs_accordion_start', category: 'bs_accordion', template: 'ce_bs_accordion_start')]
 final class AccordionStartElementController extends AbstractAccordionStartElementController
 {
 }
