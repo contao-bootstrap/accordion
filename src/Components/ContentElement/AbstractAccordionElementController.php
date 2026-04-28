@@ -65,6 +65,13 @@ abstract class AbstractAccordionElementController extends AbstractContentElement
 
     protected function getAccordionGroup(ContentModel $model): ContentModel|null
     {
+        if ($model->ptable === 'tl_content') {
+            $parent = ContentModel::findByPk($model->pid);
+            if ($parent instanceof ContentModel && $parent->type === 'bs_accordion_group_wrapper') {
+                return $parent;
+            }
+        }
+
         $group = ContentModel::findOneBy(
             [
                 'tl_content.ptable=?',
