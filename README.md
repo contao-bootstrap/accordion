@@ -78,3 +78,18 @@ contao_bootstrap_accordion:
 ```
 
 Afterwards you can run the migration in the Contao Manager or via CLI.
+
+Deprecated
+-------
+
+The legacy content elements `bs_accordion_start`, `bs_accordion_end`,
+`bs_accordion_group_start` and `bs_accordion_group_end` are deprecated
+and will be removed in a future major version. Use `bs_accordion_wrapper`
+and `bs_accordion_group_wrapper` instead.
+
+To disable the legacy elements now, set the following configuration:
+
+```yaml
+contao_bootstrap_accordion:
+    enable_legacy_elements: false
+```
