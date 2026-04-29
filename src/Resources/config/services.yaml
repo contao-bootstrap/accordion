@@ -11,22 +11,6 @@ services:
         arguments:
             - '@contao_bootstrap.core.helper.color_rotate'
 
-    ContaoBootstrap\Accordion\Components\ContentElement\AccordionGroupStartElementController:
-        arguments:
-            - '@netzmacht.contao_toolkit.template_renderer'
-            - '@netzmacht.contao_toolkit.routing.scope_matcher'
-            - '@netzmacht.contao_toolkit.response_tagger'
-            - '@contao.security.token_checker'
-            - '@contao_bootstrap.core.helper.color_rotate'
-
-    ContaoBootstrap\Accordion\Components\ContentElement\AccordionGroupEndElementController:
-        arguments:
-            - '@netzmacht.contao_toolkit.template_renderer'
-            - '@netzmacht.contao_toolkit.routing.scope_matcher'
-            - '@netzmacht.contao_toolkit.response_tagger'
-            - '@contao.security.token_checker'
-            - '@contao_bootstrap.core.helper.color_rotate'
-
     ContaoBootstrap\Accordion\Components\ContentElement\AccordionSingleElementController:
         arguments:
             - '@netzmacht.contao_toolkit.template_renderer'
@@ -35,22 +19,6 @@ services:
             - '@contao.security.token_checker'
             - '@contao_bootstrap.core.helper.color_rotate'
             - '@contao.image.studio'
-
-    ContaoBootstrap\Accordion\Components\ContentElement\AccordionStartElementController:
-        arguments:
-            - '@netzmacht.contao_toolkit.template_renderer'
-            - '@netzmacht.contao_toolkit.routing.scope_matcher'
-            - '@netzmacht.contao_toolkit.response_tagger'
-            - '@contao.security.token_checker'
-            - '@contao_bootstrap.core.helper.color_rotate'
-
-    ContaoBootstrap\Accordion\Components\ContentElement\AccordionEndElementController:
-        arguments:
-            - '@netzmacht.contao_toolkit.template_renderer'
-            - '@netzmacht.contao_toolkit.routing.scope_matcher'
-            - '@netzmacht.contao_toolkit.response_tagger'
-            - '@contao.security.token_checker'
-            - '@contao_bootstrap.core.helper.color_rotate'
 
     ContaoBootstrap\Accordion\Migration\PanelMigration:
         arguments:
