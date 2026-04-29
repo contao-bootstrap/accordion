@@ -8,7 +8,7 @@ use Override;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 final class ContaoBootstrapAccordionExtension extends Extension
 {
@@ -18,12 +18,26 @@ final class ContaoBootstrapAccordionExtension extends Extension
     #[Override]
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $loader = new XmlFileLoader(
+        $configuration = new Configuration();
+        $config        = $this->processConfiguration($configuration, $configs);
+
+        $container->setParameter(
+            'contao_bootstrap.accordion.enable_wrapper_migration',
+            $config['enable_wrapper_migration'],
+        );
+
+        $loader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__ . '/../Resources/config'),
         );
 
-        $loader->load('listener.xml');
-        $loader->load('services.xml');
+        $loader->load('listener.yaml');
+        $loader->load('services.yaml');
+
+        if (! $config['enable_legacy_elements']) {
+            return;
+        }
+
+        $loader->load('legacy.yaml');
     }
 }

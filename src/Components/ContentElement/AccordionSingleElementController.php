@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Accordion\Components\ContentElement;
 
+use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\CoreBundle\Image\Studio\Studio;
 use Contao\CoreBundle\Security\Authentication\Token\TokenChecker;
-use Contao\CoreBundle\ServiceAnnotation\ContentElement;
 use Contao\Model;
 use ContaoBootstrap\Core\Helper\ColorRotate;
 use Netzmacht\Contao\Toolkit\Response\ResponseTagger;
@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 use function array_merge;
 
-/** @ContentElement("bs_accordion_single", category="bs_accordion", template="ce_bs_accordion_single") */
+#[AsContentElement('bs_accordion_single', category: 'bs_accordion', template: 'ce_bs_accordion_single')]
 final class AccordionSingleElementController extends AbstractAccordionStartElementController
 {
     public function __construct(

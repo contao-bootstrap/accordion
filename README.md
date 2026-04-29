@@ -22,8 +22,8 @@ See [changelog](CHANGELOG.md)
 Requirements
 ------------
 
- - PHP ^8.1
- - Contao ^4.13 || ^5.0
+ - PHP ^8.2
+ - Contao ^5.3
 
 
 Install
@@ -64,4 +64,32 @@ class AppKernel
     }
 }
 
+```
+
+Migration
+-------
+
+To automatically migrate your accordion from Start- and Stop-Wrappers to nested fragments, you have to enable the
+migration by creating `config/packages/contao_bootstrap_accordion.yaml` with the following content:
+
+```yaml
+contao_bootstrap_accordion:
+    enable_wrapper_migration: true
+```
+
+Afterwards you can run the migration in the Contao Manager or via CLI.
+
+Deprecated
+-------
+
+The legacy content elements `bs_accordion_start`, `bs_accordion_end`,
+`bs_accordion_group_start` and `bs_accordion_group_end` are deprecated
+and will be removed in a future major version. Use `bs_accordion_wrapper`
+and `bs_accordion_group_wrapper` instead.
+
+To disable the legacy elements now, set the following configuration:
+
+```yaml
+contao_bootstrap_accordion:
+    enable_legacy_elements: false
 ```

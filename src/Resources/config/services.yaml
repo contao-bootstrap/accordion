@@ -1,0 +1,35 @@
+services:
+    _defaults:
+        autoconfigure: true
+        public: false
+
+    ContaoBootstrap\Accordion\Components\ContentElement\AccordionGroupWrapperElementController:
+        arguments:
+            - '@contao_bootstrap.core.helper.color_rotate'
+
+    ContaoBootstrap\Accordion\Components\ContentElement\AccordionWrapperElementController:
+        arguments:
+            - '@contao_bootstrap.core.helper.color_rotate'
+
+    ContaoBootstrap\Accordion\Components\ContentElement\AccordionSingleElementController:
+        arguments:
+            - '@netzmacht.contao_toolkit.template_renderer'
+            - '@netzmacht.contao_toolkit.routing.scope_matcher'
+            - '@netzmacht.contao_toolkit.response_tagger'
+            - '@contao.security.token_checker'
+            - '@contao_bootstrap.core.helper.color_rotate'
+            - '@contao.image.studio'
+
+    ContaoBootstrap\Accordion\Migration\PanelMigration:
+        arguments:
+            - '@database_connection'
+
+    ContaoBootstrap\Accordion\Migration\AccordionGroupWrapperMigration:
+        arguments:
+            - '@database_connection'
+            - '%contao_bootstrap.accordion.enable_wrapper_migration%'
+
+    ContaoBootstrap\Accordion\Migration\AccordionWrapperMigration:
+        arguments:
+            - '@database_connection'
+            - '%contao_bootstrap.accordion.enable_wrapper_migration%'

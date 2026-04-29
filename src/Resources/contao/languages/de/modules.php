@@ -21,3 +21,8 @@ $GLOBALS['TL_LANG']['CTE']['bs_accordion_single']['0']      = 'Akkordion-Einzele
 $GLOBALS['TL_LANG']['CTE']['bs_accordion_single']['1']      = 'Akkordion-Einzelelement';
 $GLOBALS['TL_LANG']['CTE']['bs_accordion_start']['0']       = 'Akkordion-Start';
 $GLOBALS['TL_LANG']['CTE']['bs_accordion_start']['1']       = 'Akkordion-Startelement';
+
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_group_wrapper']['0'] = 'Akkordiongruppe';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_group_wrapper']['1'] = 'Akkordiongruppe-Wrapper';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_wrapper']['0']       = 'Akkordion';
+$GLOBALS['TL_LANG']['CTE']['bs_accordion_wrapper']['1']       = 'Akkordion-Wrapper';

@@ -1,0 +1,11 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+
+{% block content %}
+
+    <div class="accordion" id="{{ groupId }}" role="tablist" aria-multiselectable="true">
+      {% for fragment in nested_fragments %}
+        {{ content_element(fragment) }}
+      {% endfor %}
+    </div>
+
+{% endblock %}

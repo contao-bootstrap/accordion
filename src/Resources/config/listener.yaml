@@ -1,0 +1,6 @@
+services:
+    _defaults:
+        autoconfigure: true
+        public: false
+
+    ContaoBootstrap\Accordion\EventListener\Dca\ContentDcaListener: ~
