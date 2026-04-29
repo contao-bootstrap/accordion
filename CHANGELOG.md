@@ -5,6 +5,17 @@ Changelog
 Unreleased
 ----------
 
+### Deprecated
+
+ - Legacy content elements `bs_accordion_start`, `bs_accordion_end`,
+   `bs_accordion_group_start` and `bs_accordion_group_end` are deprecated.
+   Use `bs_accordion_wrapper` and `bs_accordion_group_wrapper` instead.
+
+### Added
+
+ - Bundle configuration option `enable_legacy_elements` (default: `true`) to
+   disable legacy content elements.
+
 3.0.0
 -----
 
