@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Accordion\Components\ContentElement;
 
+use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\CoreBundle\Image\Studio\Studio;
 use Contao\CoreBundle\Security\Authentication\Token\TokenChecker;
-use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\Model;
 use ContaoBootstrap\Core\Helper\ColorRotate;
 use Netzmacht\Contao\Toolkit\Response\ResponseTagger;

@@ -34,8 +34,10 @@ final class ContaoBootstrapAccordionExtension extends Extension
         $loader->load('listener.yaml');
         $loader->load('services.yaml');
 
-        if ($config['enable_legacy_elements']) {
-            $loader->load('legacy.yaml');
+        if (! $config['enable_legacy_elements']) {
+            return;
         }
+
+        $loader->load('legacy.yaml');
     }
 }
